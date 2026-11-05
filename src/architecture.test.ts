@@ -27,4 +27,12 @@ describe("data-driven architecture", () => {
       }
     }
   });
+
+  it("keeps literal colours out of the sheet so every colour follows the theme", () => {
+    const sources = files("src/components/sheet").filter((f) => /\.(tsx?|css)$/.test(f));
+    for (const file of sources) {
+      const literal = readFileSync(file, "utf8").match(/#[0-9a-f]{3,8}\b|\b(rgb|hsl)a?\(/i);
+      expect(literal?.[0], `${file} has a literal colour; use a token from src/theme.css`).toBeUndefined();
+    }
+  });
 });

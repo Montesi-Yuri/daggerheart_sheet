@@ -60,7 +60,7 @@ function Header() {
     <>
       <Abs x={0} y={0} w={952} h={75} className="header-band" />
       <svg className="abs header-dark" width="340" height="88" viewBox="0 0 340 88" aria-hidden="true">
-        <polygon points="0,0 326,0 282,88 0,88" fill="#3d3d3d" />
+        <polygon points="0,0 326,0 282,88 0,88" fill="var(--sheet-header-shape)" />
       </svg>
       <Abs x={22} y={19} className="title">
         {title}

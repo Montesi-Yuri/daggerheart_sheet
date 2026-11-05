@@ -30,7 +30,7 @@ function Header() {
     <>
       <Abs x={0} y={0} w={952} h={92} className="p2-band" />
       <svg className="abs" style={{ left: 0, top: 0 }} width="340" height="92" viewBox="0 0 340 92" aria-hidden="true">
-        <polygon points="0,0 326,0 282,92 0,92" fill="#3d3d3d" />
+        <polygon points="0,0 326,0 282,92 0,92" fill="var(--sheet-header-shape)" />
       </svg>
       <Abs x={44} y={34} className="p2-title">
         {(cls?.name ?? c.classNameSnapshot ?? "").toUpperCase()}
@@ -173,7 +173,7 @@ function Questions({ section, x, title, intro, cx }: { section: "background" | "
         {intro}
       </Abs>
       <svg className="abs" style={{ left: left ? 2 : 454, top: 395 }} width="470" height="270" viewBox="0 0 470 270" aria-hidden="true" >
-        <path d={`M${left ? 312 : 300} 26 H438 Q456 26 456 44 V232 Q456 250 438 250 H${left ? 300 : 288} M${left ? 312 : 300} 112 H456 M${left ? 312 : 300} 196 H456`} fill="none" stroke="#555" strokeWidth="1.5" />
+        <path d={`M${left ? 312 : 300} 26 H438 Q456 26 456 44 V232 Q456 250 438 250 H${left ? 300 : 288} M${left ? 312 : 300} 112 H456 M${left ? 312 : 300} 196 H456`} fill="none" stroke="var(--sheet-line-slot)" strokeWidth="1.5" />
       </svg>
       {qs.map((q, i) => (
         <div key={i}>

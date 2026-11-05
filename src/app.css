@@ -1,12 +1,4 @@
 :root {
-  --ui-bg: #eceef1;
-  --ui-panel: #ffffff;
-  --ui-ink: #1f2430;
-  --ui-muted: #5b6270;
-  --ui-line: #cfd4dc;
-  --ui-accent: #3b4a63;
-  --ui-warn: #8a5a00;
-  --ui-warn-bg: #fff4d6;
   font-family: "Open Sans", system-ui, sans-serif;
   color: var(--ui-ink);
 }
@@ -28,7 +20,7 @@ textarea {
   color: inherit;
 }
 :focus-visible {
-  outline: 3px solid #2f6fed;
+  outline: 3px solid var(--ui-focus);
   outline-offset: 2px;
 }
 
@@ -82,6 +74,21 @@ textarea {
   border-color: #50586a;
   color: #fff;
 }
+.theme-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+.theme-pick select {
+  color-scheme: dark;
+  background: #3a404c;
+  border: 1px solid #50586a;
+  border-radius: 6px;
+  padding: 5px 6px;
+  color: #fff;
+  cursor: pointer;
+}
 
 .tabs {
   display: none;
@@ -101,7 +108,7 @@ textarea {
   padding: 10px;
 }
 .pane-sheet {
-  background: #c9ced6;
+  background: var(--ui-sheet-bg);
   padding: 0;
 }
 
@@ -113,7 +120,7 @@ textarea {
     flex: 1;
     padding: 10px;
     border: 0;
-    background: #dde1e7;
+    background: var(--ui-tab);
     cursor: pointer;
     font-weight: 600;
   }
@@ -198,7 +205,7 @@ textarea {
   padding: 6px 8px;
   border: 1px solid var(--ui-line);
   border-radius: 6px;
-  background: #fff;
+  background: var(--ui-field);
 }
 .override {
   display: flex;
@@ -211,7 +218,7 @@ textarea {
 }
 .reset {
   border: 1px solid var(--ui-line);
-  background: #fff;
+  background: var(--ui-field);
   border-radius: 6px;
   cursor: pointer;
   padding: 4px 8px;
@@ -227,7 +234,7 @@ textarea {
   height: 32px;
   border-radius: 6px;
   border: 1px solid var(--ui-line);
-  background: #fff;
+  background: var(--ui-field);
   cursor: pointer;
   font-size: 1.1rem;
 }
@@ -314,7 +321,7 @@ details > summary {
 .chip {
   border: 1px solid var(--ui-line);
   border-radius: 999px;
-  background: #fff;
+  background: var(--ui-field);
   padding: 3px 10px;
   cursor: pointer;
   font-size: 0.85rem;
@@ -322,7 +329,7 @@ details > summary {
 .chip[aria-pressed="true"] {
   background: var(--ui-accent);
   border-color: var(--ui-accent);
-  color: #fff;
+  color: var(--ui-on-accent);
 }
 .tier {
   margin-bottom: 8px;
@@ -374,7 +381,7 @@ details > summary {
 
 .preview-placeholder {
   padding: 40px;
-  color: #333;
+  color: var(--ui-ink);
 }
 
 /* Preview pane */
@@ -421,11 +428,11 @@ details > summary {
   z-index: 20;
   min-width: 320px;
   max-width: 90vw;
-  background: #fff;
+  background: var(--ui-panel);
   color: var(--ui-ink);
   border: 1px solid var(--ui-line);
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 24px var(--ui-menu-shadow);
   padding: 8px;
 }
 .menu-panel ul {
@@ -440,7 +447,7 @@ details > summary {
   border-radius: 6px;
 }
 .menu-panel li.current {
-  background: #e8edf7;
+  background: var(--ui-current);
 }
 .menu-pick {
   flex: 1;
@@ -459,7 +466,7 @@ details > summary {
 }
 .menu-panel .btn.small {
   margin-top: 0;
-  background: #fff;
+  background: var(--ui-panel);
   color: var(--ui-ink);
   border-color: var(--ui-line);
 }
@@ -498,12 +505,12 @@ details > summary {
   cursor: pointer;
 }
 .banner-msg.error {
-  background: #fde2e2;
-  color: #7a1212;
+  background: var(--ui-error-bg);
+  color: var(--ui-error);
 }
 .banner-msg.info {
-  background: #e3f1e6;
-  color: #17502a;
+  background: var(--ui-info-bg);
+  color: var(--ui-info);
 }
 
 /* Print: only the two sheet pages, one per US Letter page, exact colours, no app chrome. */

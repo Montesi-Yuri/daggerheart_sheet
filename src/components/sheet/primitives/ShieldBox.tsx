@@ -27,11 +27,11 @@ export function ShieldBox({
   return (
     <Abs x={x} y={y} w={w} h={h} className="shield">
       <svg width={w} height={h} viewBox="0 0 100 84" preserveAspectRatio="none" aria-hidden="true">
-        <path d={PATHS[variant]} fill="#fff" stroke="#4a4a4a" strokeWidth="3.5" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+        <path d={PATHS[variant]} fill="var(--sheet-paper)" stroke="var(--sheet-line)" strokeWidth="3.5" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
         <path
           d={PATHS[variant]}
           fill="none"
-          stroke="#b9b9b9"
+          stroke="var(--sheet-line-inner)"
           strokeWidth="1.5"
           transform="translate(50 42) scale(0.86) translate(-50 -42)"
           vectorEffect="non-scaling-stroke"

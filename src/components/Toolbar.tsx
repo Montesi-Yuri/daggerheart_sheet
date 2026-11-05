@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { exportCharacter, exportFileName, parseImport } from "../state/io";
 import { useCharacter, useSheet } from "../state/store";
+import { ThemeSelect } from "./ThemeSelect";
 
 function download(name: string, text: string) {
   const url = URL.createObjectURL(new Blob([text], { type: "application/json" }));
@@ -123,6 +124,7 @@ export function Toolbar() {
           Print / Save PDF
         </button>
         <span className="grow" />
+        <ThemeSelect />
         <span className="who">{c.name || "Unnamed character"}</span>
       </header>
       {message && (

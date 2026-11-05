@@ -21,7 +21,7 @@ export interface Loaded {
   quarantined: Quarantined[];
 }
 
-function getStorage(): Storage | null {
+export function getStorage(): Storage | null {
   try {
     return globalThis.localStorage ?? null;
   } catch {

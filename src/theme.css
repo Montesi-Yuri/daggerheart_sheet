@@ -1,0 +1,147 @@
+/* Every colour token lives here. Light values are the defaults; dark values apply on screen only,
+   so print and PDF output always use the light sheet. <html data-theme> is set by index.html and src/state/theme.ts. */
+
+:root {
+  /* App UI */
+  --ui-bg: #eceef1;
+  --ui-panel: #ffffff;
+  --ui-field: #ffffff;
+  --ui-ink: #1f2430;
+  --ui-muted: #5b6270;
+  --ui-line: #cfd4dc;
+  --ui-accent: #3b4a63;
+  --ui-on-accent: #ffffff;
+  --ui-focus: #2f6fed;
+  --ui-sheet-bg: #c9ced6;
+  --ui-tab: #dde1e7;
+  --ui-current: #e8edf7;
+  --ui-menu-shadow: rgba(0, 0, 0, 0.25);
+  --ui-warn: #8a5a00;
+  --ui-warn-bg: #fff4d6;
+  --ui-error: #7a1212;
+  --ui-error-bg: #fde2e2;
+  --ui-info: #17502a;
+  --ui-info-bg: #e3f1e6;
+
+  /* Sheet: surfaces */
+  --sheet-paper: #fff;
+  --sheet-band: #cdcdcd;
+  --sheet-band-p2: #e3e3e3;
+  --sheet-header-shape: #3d3d3d;
+  --sheet-on-header: #fff;
+  --sheet-tag: #4a4a4a;
+  --sheet-thr: #4d4d4d;
+  --sheet-achievement: #555;
+  --sheet-on-fill: #fff;
+  --sheet-pip-track: #bdbdbd;
+  --sheet-pip: #fff;
+  --sheet-exp-tab: #c4c4c4;
+  --sheet-chosen: #d9d9d9;
+  --sheet-tone: #dcdcdc;
+  --sheet-page-shadow: rgba(0, 0, 0, 0.3);
+  --sheet-highlight: rgba(47, 111, 237, 0.35);
+
+  /* Sheet: text */
+  --sheet-ink-strong: #222;
+  --sheet-ink: #333;
+  --sheet-ink-banner: #3a3a3a;
+  --sheet-ink-soft: #444;
+  --sheet-ink-label: #4a4a4a;
+  --sheet-ink-muted: #555;
+  --sheet-ink-faint: #666;
+  --sheet-ink-subtle: #777;
+  --sheet-stat-label: #8a8a8a;
+  --sheet-handwriting: #1d2b4f;
+
+  /* Sheet: lines */
+  --sheet-line: #4a4a4a;
+  --sheet-line-slot: #555;
+  --sheet-line-box: #444;
+  --sheet-line-shield: #666;
+  --sheet-line-mid: #9a9a9a;
+  --sheet-line-soft: #aaa;
+  --sheet-line-inner: #b9b9b9;
+  --sheet-line-faint: #bbb;
+
+  /* Sheet: marked and interactive states */
+  --sheet-mark: #4a4a4a;
+  --sheet-mark-slot: #555;
+  --sheet-mark-box: #444;
+  --sheet-gold-on: #8f8f8f;
+  --sheet-die: #d8d8d8;
+  --sheet-die-text: #fff;
+  --sheet-die-on: #4a4a4a;
+  --sheet-die-on-text: #fff;
+}
+
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --ui-bg: #15171b;
+    --ui-panel: #1f2228;
+    --ui-field: #292d34;
+    --ui-ink: #e6e8ec;
+    --ui-muted: #a3aab6;
+    --ui-line: #3f444e;
+    --ui-accent: #9db4d8;
+    --ui-on-accent: #14171c;
+    --ui-focus: #7aa2ff;
+    --ui-sheet-bg: #0e1013;
+    --ui-tab: #2a2d34;
+    --ui-current: #2c3646;
+    --ui-menu-shadow: rgba(0, 0, 0, 0.6);
+    --ui-warn: #f0c36a;
+    --ui-warn-bg: #3a2e10;
+    --ui-error: #ffc9c9;
+    --ui-error-bg: #4a1f1f;
+    --ui-info: #b9e6c5;
+    --ui-info-bg: #1d3a26;
+
+    --sheet-paper: #1e1e1e;
+    --sheet-band: #3a3a3a;
+    --sheet-band-p2: #2e2e2e;
+    --sheet-header-shape: #0e0e0e;
+    --sheet-on-header: #fff;
+    --sheet-tag: #5a5a5a;
+    --sheet-thr: #5a5a5a;
+    --sheet-achievement: #5a5a5a;
+    --sheet-on-fill: #fff;
+    --sheet-pip-track: #4a4a4a;
+    --sheet-pip: #1e1e1e;
+    --sheet-exp-tab: #3a3a3a;
+    --sheet-chosen: #3f3f3f;
+    --sheet-tone: #333;
+    --sheet-page-shadow: rgba(0, 0, 0, 0.7);
+    --sheet-highlight: rgba(122, 162, 255, 0.5);
+
+    --sheet-ink-strong: #e8e8e8;
+    --sheet-ink: #dedede;
+    --sheet-ink-banner: #dedede;
+    --sheet-ink-soft: #c8c8c8;
+    --sheet-ink-label: #c0c0c0;
+    --sheet-ink-muted: #b5b5b5;
+    --sheet-ink-faint: #a8a8a8;
+    --sheet-ink-subtle: #9a9a9a;
+    --sheet-stat-label: #a8a8a8;
+    --sheet-handwriting: #a9c4f5;
+
+    --sheet-line: #a0a0a0;
+    --sheet-line-slot: #909090;
+    --sheet-line-box: #a0a0a0;
+    --sheet-line-shield: #909090;
+    --sheet-line-mid: #777;
+    --sheet-line-soft: #6a6a6a;
+    --sheet-line-inner: #555;
+    --sheet-line-faint: #555;
+
+    --sheet-mark: #d8d8d8;
+    --sheet-mark-slot: #d8d8d8;
+    --sheet-mark-box: #d8d8d8;
+    --sheet-gold-on: #b5b5b5;
+    --sheet-die: #3a3a3a;
+    --sheet-die-text: #c8c8c8;
+    --sheet-die-on: #d8d8d8;
+    --sheet-die-on-text: #1e1e1e;
+  }
+}

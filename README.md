@@ -26,6 +26,7 @@ Deep links: `?view=p1|p2|stacked` and `?zoom=fit|full` choose the preview mode.
 - **Click the sheet to play**: HP, Stress and Armor slots, Hope pips, gold (handfuls, bags, chest), trait marks, the class die and the level-up boxes all update the same store as the form.
 - **Suggestions with overrides**: picking a class, subclass, weapon, armor, ancestry or community pre-fills everything that depends on it. Once you edit a field by hand it becomes an *override*: later selection changes leave it alone and a ↺ button restores the suggestion.
 - **Derived, never stored twice**: thresholds, Proficiency, Evasion, armor/HP/Stress slots, Experience bonuses, trait marks and class-die size are computed in `src/state/derive.ts`. Manual `adjustments` cover homebrew and magic items.
+- **Theme**: System, Light or Dark from the toolbar, remembered per device and never stored in a character. Dark mode covers the app and the on-screen sheet; print and PDF output always use the light sheet. All colours are tokens in `src/theme.css`, and a test rejects literal colours under `src/components/sheet`.
 - **Characters**: several characters in `localStorage`, autosaved (debounced), export/import as JSON. Importing always creates a copy and never overwrites. A saved character that fails validation is quarantined (kept, downloadable) instead of deleted.
 
 ## Layout of the code
