@@ -8,6 +8,7 @@ export function Frame({
   w,
   h,
   bleed,
+  tone,
   children,
 }: {
   x: number;
@@ -15,10 +16,11 @@ export function Frame({
   w: number;
   h: number;
   bleed?: "left" | "right";
+  tone?: "grey";
   children?: ReactNode;
 }) {
   return (
-    <Abs x={x} y={y} w={w} h={h} className={`frame ${bleed ? `bleed-${bleed}` : ""}`}>
+    <Abs x={x} y={y} w={w} h={h} className={`frame ${bleed ? `bleed-${bleed}` : ""} ${tone ? `tone-${tone}` : ""}`}>
       {children}
     </Abs>
   );

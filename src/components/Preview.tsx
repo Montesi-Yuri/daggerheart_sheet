@@ -10,6 +10,9 @@ type Mode = "stacked" | "p1" | "p2";
 type Zoom = "fit" | "full";
 
 function load<T extends string>(key: string, allowed: T[], fallback: T): T {
+  // ?view=p1|p2|stacked and ?zoom=fit|full override the remembered choice (handy for deep links and screenshots).
+  const fromUrl = new URLSearchParams(location.search).get(key === "mode" ? "view" : key) as T | null;
+  if (fromUrl && allowed.includes(fromUrl)) return fromUrl;
   try {
     const v = JSON.parse(localStorage.getItem(VIEW_KEY) ?? "{}")[key];
     return allowed.includes(v) ? v : fallback;
