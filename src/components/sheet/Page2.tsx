@@ -189,7 +189,7 @@ function Questions({ section, x, title, intro, cx }: { section: "background" | "
   );
 }
 
-function LevelUpTierBlock({ tier, x, w, cx }: { tier: LevelUpTier; x: number; w: number; cx: number }) {
+function LevelUpTierBlock({ tier, x, w, cx, bleed }: { tier: LevelUpTier; x: number; w: number; cx: number; bleed?: "left" | "right" }) {
   const c = useCharacter();
   const update = useSheet((s) => s.update);
   const info = TIER_INFO[tier];
@@ -199,12 +199,12 @@ function LevelUpTierBlock({ tier, x, w, cx }: { tier: LevelUpTier; x: number; w:
   const nameOf = (id: string) => c.experiences.find((e) => e.id === id)?.name || "(unnamed)";
   return (
     <div className={`tier-block${unlocked ? "" : " tier-locked"}${current ? " tier-current" : ""}`}>
-      <Frame x={x} y={722} w={w} h={520} tone="grey" />
+      <Frame x={x} y={722} w={w} h={520} tone="grey" bleed={bleed} />
       <BannerHeader title={`${info.title.toUpperCase()}: ${info.levels.replace("Levels ", "LEVELS ")}`} cx={cx} y={709} w={Math.min(270, w - 30)} />
-      <Abs x={x + 18} y={742} w={w - 36} h={70} className="achievement">
+      <Abs x={x + 18} y={742} w={Math.min(w - 36, 934 - (x + 18))} h={70} className="achievement">
         {info.achievement}
       </Abs>
-      <Abs x={x + 14} y={820} w={w - 28} className="tier-intro">
+      <Abs x={x + 14} y={820} w={Math.min(w - 28, 938 - (x + 14))} className="tier-intro">
         {TIER_INTRO[tier]}
       </Abs>
       {!unlocked && (
@@ -212,7 +212,7 @@ function LevelUpTierBlock({ tier, x, w, cx }: { tier: LevelUpTier; x: number; w:
           Unlocks at level {info.firstLevel}
         </Abs>
       )}
-      <Abs x={x + 12} y={858} w={w - 22} className="lu-list">
+      <Abs x={x + 12} y={858} w={Math.min(w - 22, 940 - (x + 12))} className="lu-list">
         {LEVEL_UP_OPTIONS.filter((o) => boxLimit(o.id, tier) > 0).map((o) => {
           const crossed = isCrossedOut(c, o.id, tier);
           const count = pickCount(picks, o.id);
@@ -279,12 +279,12 @@ export function Page2() {
       </Abs>
       {LEVEL_UP_TIERS.map((t, i) => {
         const cols = [
-          { x: -4, w: 328, cx: 160 },
-          { x: 343, w: 288, cx: 487 },
-          { x: 651, w: 311, cx: 805 },
+          { x: -4, w: 328, cx: 160, bleed: "left" },
+          { x: 343, w: 288, cx: 487, bleed: undefined },
+          { x: 651, w: 311, cx: 802, bleed: "right" },
         ] as const;
         const col = cols[i]!;
-        return <LevelUpTierBlock key={t} tier={t} x={col.x} w={col.w} cx={col.cx} />;
+        return <LevelUpTierBlock key={t} tier={t} x={col.x} w={col.w} cx={col.cx} bleed={col.bleed} />;
       })}
       <Abs x={33} y={1196} className="footer">
         Daggerheart © Darrington Press 2025

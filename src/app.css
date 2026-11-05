@@ -409,3 +409,161 @@ details > summary {
 .sheet-slot[hidden] {
   display: none;
 }
+
+/* Toolbar menus and messages */
+.menu {
+  position: relative;
+}
+.menu-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 20;
+  min-width: 320px;
+  max-width: 90vw;
+  background: #fff;
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  padding: 8px;
+}
+.menu-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu-panel li {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  border-radius: 6px;
+}
+.menu-panel li.current {
+  background: #e8edf7;
+}
+.menu-pick {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+.menu-pick span {
+  font-size: 0.78rem;
+  color: var(--ui-muted);
+  text-transform: capitalize;
+}
+.menu-panel .btn.small {
+  margin-top: 0;
+  background: #fff;
+  color: var(--ui-ink);
+  border-color: var(--ui-line);
+}
+.quarantine {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 8px;
+  padding-top: 8px;
+  font-size: 0.8rem;
+}
+.q-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.q-row span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.banner-msg {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+.banner-msg span {
+  flex: 1;
+}
+.banner-msg button {
+  background: none;
+  border: 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.banner-msg.error {
+  background: #fde2e2;
+  color: #7a1212;
+}
+.banner-msg.info {
+  background: #e3f1e6;
+  color: #17502a;
+}
+
+/* Print: only the two sheet pages, one per US Letter page, exact colours, no app chrome. */
+@page {
+  size: letter;
+  margin: 0;
+}
+@media print {
+  html,
+  body,
+  #root {
+    height: auto;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .toolbar,
+  .tabs,
+  .banner-msg,
+  .pane-form,
+  .preview-bar {
+    display: none !important;
+  }
+  .app,
+  .panes,
+  .app .pane-sheet,
+  .preview,
+  .preview-pages {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+  .sheet-slot,
+  .sheet-slot[hidden] {
+    display: block !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+  }
+  .sheet-slot:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+  .sheet-scaler {
+    transform: scale(0.857143) !important;
+  }
+  .sheet-page button,
+  .sheet-page button:focus-visible {
+    outline: none !important;
+  }
+  .sheet-page .tier-current .frame {
+    box-shadow: none !important;
+  }
+  .sheet-page .locked-note {
+    display: none;
+  }
+}
