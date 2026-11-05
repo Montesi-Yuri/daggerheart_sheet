@@ -1,0 +1,41 @@
+// Generated once from the Daggerheart SRD 1.0 (Darrington Press, DPCGL); see README for attribution.
+import { ArmorSchema, type Armor } from "./schema";
+
+const raw: Armor[] = [
+  {"id":"gambeson-armor","name":"Gambeson Armor","tier":1,"thresholds":[5,11],"score":3,"features":[{"name":"Flexible","text":"+1 to Evasion"}],"modifiers":{"evasion":1}},
+  {"id":"leather-armor","name":"Leather Armor","tier":1,"thresholds":[6,13],"score":3,"features":[],"modifiers":{}},
+  {"id":"chainmail-armor","name":"Chainmail Armor","tier":1,"thresholds":[7,15],"score":4,"features":[{"name":"Heavy","text":"-1 to Evasion"}],"modifiers":{"evasion":-1}},
+  {"id":"full-plate-armor","name":"Full Plate Armor","tier":1,"thresholds":[8,17],"score":4,"features":[{"name":"Very Heavy","text":"-2 to Evasion; -1 to Agility"}],"modifiers":{"evasion":-2,"agility":-1}},
+  {"id":"improved-gambeson-armor","name":"Improved Gambeson Armor","tier":2,"thresholds":[7,16],"score":4,"features":[{"name":"Flexible","text":"+1 to Evasion"}],"modifiers":{"evasion":1}},
+  {"id":"improved-leather-armor","name":"Improved Leather Armor","tier":2,"thresholds":[9,20],"score":4,"features":[],"modifiers":{}},
+  {"id":"improved-chainmail-armor","name":"Improved Chainmail Armor","tier":2,"thresholds":[11,24],"score":5,"features":[{"name":"Heavy","text":"-1 to Evasion"}],"modifiers":{"evasion":-1}},
+  {"id":"improved-full-plate-armor","name":"Improved Full Plate Armor","tier":2,"thresholds":[13,28],"score":5,"features":[{"name":"Very Heavy","text":"-2 to Evasion; -1 to Agility"}],"modifiers":{"evasion":-2,"agility":-1}},
+  {"id":"elundrian-chain-armor","name":"Elundrian Chain Armor","tier":2,"thresholds":[9,21],"score":4,"features":[{"name":"Warded","text":"You reduce incoming magic damage by your Armor Score before applying it to your damage thresholds."}],"modifiers":{}},
+  {"id":"harrowbone-armor","name":"Harrowbone Armor","tier":2,"thresholds":[9,21],"score":4,"features":[{"name":"Resilient","text":"Before you mark your last Armor Slot, roll a d6. On a result of 6, reduce the severity by one threshold without marking an Armor Slot."}],"modifiers":{}},
+  {"id":"irontree-breastplate-armor","name":"IronTree Breastplate Armor","tier":2,"thresholds":[9,20],"score":4,"features":[{"name":"Reinforced","text":"When you mark your last Armor Slot, increase your damage thresholds by +2 until you clear at least 1 Armor Slot."}],"modifiers":{}},
+  {"id":"runetan-floating-armor","name":"Runetan Floating Armor","tier":2,"thresholds":[9,20],"score":4,"features":[{"name":"Shifting","text":"When you are targeted for an attack, you can mark an Armor Slot to give the attack roll against you disadvantage."}],"modifiers":{}},
+  {"id":"tyris-soft-armor","name":"Tyris Soft Armor","tier":2,"thresholds":[8,18],"score":5,"features":[{"name":"Quiet","text":"You gain a +2 bonus to rolls you make to move silently."}],"modifiers":{}},
+  {"id":"rosewild-armor","name":"Rosewild Armor","tier":2,"thresholds":[11,23],"score":5,"features":[{"name":"Hopeful","text":"When you would spend a Hope, you can mark an Armor Slot instead."}],"modifiers":{}},
+  {"id":"advanced-gambeson-armor","name":"Advanced Gambeson Armor","tier":3,"thresholds":[9,23],"score":5,"features":[{"name":"Flexible","text":"+1 to Evasion"}],"modifiers":{"evasion":1}},
+  {"id":"advanced-leather-armor","name":"Advanced Leather Armor","tier":3,"thresholds":[11,27],"score":5,"features":[],"modifiers":{}},
+  {"id":"advanced-chainmail-armor","name":"Advanced Chainmail Armor","tier":3,"thresholds":[13,31],"score":6,"features":[{"name":"Heavy","text":"-1 to Evasion"}],"modifiers":{"evasion":-1}},
+  {"id":"advanced-full-plate-armor","name":"Advanced Full Plate Armor","tier":3,"thresholds":[15,35],"score":6,"features":[{"name":"Very Heavy","text":"-2 to Evasion; -1 to Agility"}],"modifiers":{"evasion":-2,"agility":-1}},
+  {"id":"bellamoi-fine-armor","name":"Bellamoi Fine Armor","tier":3,"thresholds":[11,27],"score":5,"features":[{"name":"Gilded","text":"+1 to Presence"}],"modifiers":{"presence":1}},
+  {"id":"dragonscale-armor","name":"Dragonscale Armor","tier":3,"thresholds":[11,27],"score":5,"features":[{"name":"Impenetrable","text":"Once per short rest, when you would mark your last Hit Point, you can instead mark a Stress."}],"modifiers":{}},
+  {"id":"spiked-plate-armor","name":"Spiked Plate Armor","tier":3,"thresholds":[10,25],"score":5,"features":[{"name":"Sharp","text":"On a successful attack against a target within Melee range, add a d4 to the damage roll."}],"modifiers":{}},
+  {"id":"bladefare-armor","name":"Bladefare Armor","tier":3,"thresholds":[16,39],"score":6,"features":[{"name":"Physical","text":"You can't mark an Armor Slot to reduce magic damage."}],"modifiers":{}},
+  {"id":"monett-s-cloak","name":"Monett's Cloak","tier":3,"thresholds":[16,39],"score":6,"features":[{"name":"Magic","text":"You can't mark an Armor Slot to reduce physical damage."}],"modifiers":{}},
+  {"id":"runes-of-fortification","name":"Runes of Fortification","tier":3,"thresholds":[17,43],"score":6,"features":[{"name":"Painful","text":"Each time you mark an Armor Slot, you must mark a Stress."}],"modifiers":{}},
+  {"id":"legendary-gambeson-armor","name":"Legendary Gambeson Armor","tier":4,"thresholds":[11,32],"score":6,"features":[{"name":"Flexible","text":"+1 to Evasion"}],"modifiers":{"evasion":1}},
+  {"id":"legendary-leather-armor","name":"Legendary Leather Armor","tier":4,"thresholds":[13,36],"score":6,"features":[],"modifiers":{}},
+  {"id":"legendary-chainmail-armor","name":"Legendary Chainmail Armor","tier":4,"thresholds":[15,40],"score":7,"features":[{"name":"Heavy","text":"-1 to Evasion"}],"modifiers":{"evasion":-1}},
+  {"id":"legendary-full-plate-armor","name":"Legendary Full Plate Armor","tier":4,"thresholds":[17,44],"score":7,"features":[{"name":"Very Heavy","text":"-2 to Evasion; -1 to Agility"}],"modifiers":{"evasion":-2,"agility":-1}},
+  {"id":"dunamis-silkchain","name":"Dunamis Silkchain","tier":4,"thresholds":[13,36],"score":7,"features":[{"name":"Timeslowing","text":"Mark an Armor Slot to roll a d4 and add its result as a bonus to your Evasion against an incoming attack."}],"modifiers":{}},
+  {"id":"channeling-armor","name":"Channeling Armor","tier":4,"thresholds":[13,36],"score":5,"features":[{"name":"Channeling","text":"+1 to Spellcast Rolls"}],"modifiers":{}},
+  {"id":"emberwoven-armor","name":"Emberwoven Armor","tier":4,"thresholds":[13,36],"score":6,"features":[{"name":"Burning","text":"When an adversary attacks you within Melee range, they mark a Stress."}],"modifiers":{}},
+  {"id":"full-fortified-armor","name":"Full Fortified Armor","tier":4,"thresholds":[15,40],"score":4,"features":[{"name":"Fortified","text":"When you mark an Armor Slot, you reduce the severity of an attack by two thresholds instead of one."}],"modifiers":{}},
+  {"id":"veritas-opal-armor","name":"Veritas Opal Armor","tier":4,"thresholds":[13,36],"score":6,"features":[{"name":"Truthseeking","text":"This armor glows when another creature within Close range tells a lie."}],"modifiers":{}},
+  {"id":"savior-chainmail","name":"Savior Chainmail","tier":4,"thresholds":[18,48],"score":8,"features":[{"name":"Difficult","text":"-1 to all character traits and Evasion"}],"modifiers":{}},
+];
+
+export const ARMOR: Armor[] = raw.map((a) => ArmorSchema.parse(a));
