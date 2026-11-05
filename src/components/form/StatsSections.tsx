@@ -78,7 +78,7 @@ export function HealthSection() {
   return (
     <>
       <p className="derived">
-        Minor damage ≥ <strong>{t.minor}</strong> marks 1 HP · Major ≥ <strong>{t.major}</strong> marks 2 · Severe marks 3
+        Below <strong>{t.minor}</strong> is Minor (mark 1 HP) · <strong>{t.minor}</strong> or more is Major (2 HP) · <strong>{t.major}</strong> or more is Severe (3 HP)
       </p>
       <Marks label="HP" k="hpMarked" total={hpSlots(c)} />
       <Marks label="Stress" k="stressMarked" total={stressSlots(c)} />

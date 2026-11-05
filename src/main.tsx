@@ -10,8 +10,10 @@ import "@fontsource/kalam/latin-400.css";
 import "./app.css";
 import "./components/sheet/sheet.css";
 import { App } from "./App";
-import { startAutosave } from "./state/store";
+import { startAutosave, useSheet } from "./state/store";
+import { demoCharacter } from "./state/demo";
 
+if (import.meta.env.DEV && location.search.includes("demo")) useSheet.getState().addCharacter(demoCharacter());
 startAutosave();
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

@@ -1,4 +1,496 @@
-/* Sheet styles are scoped under .sheet so they print identically and never leak into the app UI. */
-.sheet {
+/* All sheet styling lives under .sheet-page so it prints identically and never leaks into the app UI.
+   Coordinates are in a 952x1232 space (the proportions of the PDF); Preview scales the whole page. */
+
+.sheet-page {
   position: relative;
+  width: 952px;
+  height: 1232px;
+  background: #fff;
+  overflow: hidden;
+  font-family: "Open Sans", system-ui, sans-serif;
+  font-size: 12px;
+  color: #333;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  user-select: none;
+}
+.sheet-page * {
+  box-sizing: border-box;
+}
+.sheet-page .abs {
+  position: absolute;
+}
+.sheet-page button {
+  font: inherit;
+}
+
+/* Header */
+.sheet-page .header-band {
+  background: #cdcdcd;
+  height: 75px !important;
+}
+.sheet-page .header-dark {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.sheet-page .title {
+  font: 700 30px/1 Montserrat, sans-serif;
+  color: #fff;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.sheet-page .subtitle {
+  font: 400 19px/1 Montserrat, sans-serif;
+  color: #fff;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.sheet-page .hfield {
+  background: #fff;
+  border: 1.5px solid #9a9a9a;
+  border-radius: 7px;
+}
+.sheet-page .hlabel {
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  font: 700 9px/1 Montserrat, sans-serif;
+  color: #4a4a4a;
+}
+.sheet-page .hvalue {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 11px;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}
+.sheet-page .tag {
+  background: #4a4a4a;
+  color: #fff;
+  font: 700 11px/17px Montserrat, sans-serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Shields */
+.sheet-page .shield svg {
+  position: absolute;
+  inset: 0;
+}
+.sheet-page .shield-value {
+  position: absolute;
+  inset: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sheet-page .big {
+  font: 700 30px/1 Montserrat, sans-serif;
+  color: #333;
+}
+.sheet-page .trait-value {
+  font-size: 25px;
+}
+.sheet-page .start-at {
+  text-align: center;
+  font-size: 11px;
+  color: #666;
+}
+.sheet-page .armor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 19px);
+  gap: 3px 7px;
+}
+.sheet-page .vdivider {
+  border-left: 2px solid #555;
+}
+.sheet-page .vdotted {
+  border-left: 1.5px dotted #aaa;
+}
+
+/* Traits */
+.sheet-page .trait-tab {
+  background: #4a4a4a;
+  color: #fff;
+  font: 700 10px/18px Montserrat, sans-serif;
+  padding-left: 6px;
+  letter-spacing: 0;
+  border-radius: 3px 0 0 3px;
+}
+.sheet-page .mark-circle {
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border: 2px solid #4a4a4a;
+  background: #fff;
+  padding: 0;
+  cursor: pointer;
+}
+.sheet-page .mark-circle.is-marked {
+  background: radial-gradient(#4a4a4a 55%, #fff 60%);
+}
+.sheet-page .skills {
+  text-align: center;
+  font-size: 11px;
+  line-height: 13.3px;
+  color: #555;
+}
+
+/* Frames and banners */
+.sheet-page .frame {
+  border: 2px solid #4a4a4a;
+  border-radius: 12px;
+  background: #fff;
+}
+.sheet-page .frame.bleed-left {
+  border-left: 0;
+  border-radius: 0 12px 12px 0;
+}
+.sheet-page .frame.bleed-right {
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+}
+.sheet-page .banner svg {
+  position: absolute;
+  inset: 0;
+}
+.sheet-page .banner span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 15px/1 Montserrat, sans-serif;
+  letter-spacing: 0.02em;
+  color: #3a3a3a;
+}
+.sheet-page .hint {
+  text-align: center;
+  font-size: 11px;
+  color: #555;
+}
+
+/* Damage & health */
+.sheet-page .thr {
+  background: #4d4d4d;
+  color: #fff;
+  font: 700 12.5px/14px Montserrat, sans-serif;
+  text-align: center;
+  padding-top: 5px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.sheet-page .thr-first {
+  clip-path: polygon(0 9px, 7px 0, 100% 0, 100% 100%, 7px 100%, 0 calc(100% - 9px));
+}
+.sheet-page .thr-last {
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 9px, 100% calc(100% - 9px), calc(100% - 7px) 100%, 0 100%);
+}
+.sheet-page .thr-val {
+  background: #fff;
+  border: 2px solid #4d4d4d;
+  border-radius: 3px;
+  text-align: center;
+  font: 700 15px/26px Montserrat, sans-serif;
+  color: #333;
+}
+.sheet-page .mark-hp {
+  text-align: center;
+  font-size: 10.5px;
+  color: #555;
+}
+.sheet-page .stat-label {
+  font: 700 15px/1 Montserrat, sans-serif;
+  color: #8a8a8a;
+}
+.sheet-page .slot-row {
+  display: flex;
+  gap: var(--gap, 5px);
+}
+.sheet-page .slot {
+  display: block;
+  width: var(--w, 24px);
+  height: 16px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  background: #fff;
+  padding: 0;
+  cursor: pointer;
+}
+.sheet-page .slot.is-marked {
+  background: #555;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+.sheet-page .slot-off {
+  border: 1.5px dashed #aaa;
+  background: transparent;
+  cursor: default;
+}
+.sheet-page .slot-shield {
+  width: 19px;
+  height: 24px;
+  border-radius: 6px 6px 50% 50% / 6px 6px 62% 62%;
+  border-color: #666;
+}
+.sheet-page .slot-shield.slot-off {
+  border-color: #bbb;
+}
+
+/* Hope */
+.sheet-page .pip-row {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  background: #bdbdbd;
+  border-radius: 15px;
+  padding: 0 4px;
+}
+.sheet-page .pip-cell {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sheet-page .pip {
+  width: 17px;
+  height: 17px;
+  transform: rotate(45deg);
+  background: #fff;
+  border: 2px solid #fff;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 5px;
+}
+.sheet-page .pip.is-marked {
+  background: #4a4a4a;
+  border-color: #4a4a4a;
+}
+.sheet-page .pip-tick {
+  position: absolute;
+  right: 0;
+  width: 2px;
+  height: 14px;
+  background: #fff;
+}
+.sheet-page .hope-feature {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Experience */
+.sheet-page .exp-tab {
+  background: #c4c4c4;
+  clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
+}
+.sheet-page .exp-bonus {
+  text-align: right;
+  padding-right: 4px;
+  font: 700 12px/18px Montserrat, sans-serif;
+  color: #333;
+}
+
+/* Gold */
+.sheet-page .gold-title {
+  text-align: center;
+  font: 700 14px/1 Montserrat, sans-serif;
+  color: #333;
+}
+.sheet-page .gold-btn {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: #555;
+}
+.sheet-page .gold-btn .g-fill {
+  fill: #fff;
+  stroke: #aaa;
+}
+.sheet-page .gold-btn.is-on .g-fill {
+  fill: #8f8f8f;
+  stroke: #444;
+}
+.sheet-page .gold-label {
+  font: 700 8.5px/1 Montserrat, sans-serif;
+  color: #444;
+}
+
+/* Class feature */
+.sheet-page .feature-text {
+  font-size: 11.6px;
+  line-height: 1.2;
+  color: #222;
+  overflow: hidden;
+}
+.sheet-page .feature-text h3 {
+  margin: 0 0 6px;
+  font: 700 15px/1.1 Montserrat, sans-serif;
+}
+.sheet-page .feature-text p {
+  margin: 0 0 6px;
+}
+.sheet-page .feature-text ul {
+  margin: 4px 0;
+  padding-left: 14px;
+}
+.sheet-page .feature-text li {
+  margin-bottom: 4px;
+}
+.sheet-page .die {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 0;
+  background: #d8d8d8;
+  color: #fff;
+  font: 700 15px/28px Montserrat, sans-serif;
+  padding: 0;
+  cursor: pointer;
+}
+.sheet-page .die.is-on {
+  background: #4a4a4a;
+}
+.sheet-page .die-size {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  font: 600 9px/1 Montserrat, sans-serif;
+  color: #777;
+}
+
+/* Weapons, armor, inventory */
+.sheet-page .block-title {
+  font: 700 17px/1 Montserrat, sans-serif;
+  color: #333;
+  white-space: nowrap;
+}
+.sheet-page .rule {
+  border-top: 1.5px solid #555;
+  height: 0;
+}
+.sheet-page .caption {
+  font: 700 9.5px/1 Montserrat, sans-serif;
+  color: #444;
+  white-space: nowrap;
+}
+.sheet-page .caption.center {
+  text-align: center;
+}
+.sheet-page .written {
+  display: flex;
+  align-items: flex-end;
+}
+.sheet-page .written.center .fit {
+  text-align: center;
+}
+.sheet-page .fit {
+  width: 100%;
+  overflow: hidden;
+  font-family: Kalam, "Segoe Print", cursive;
+  color: #1d2b4f;
+  line-height: 1.25;
+}
+.sheet-page .fit-sl {
+  white-space: nowrap;
+}
+.sheet-page .written .fit,
+.sheet-page .hvalue .fit {
+  height: auto;
+  max-height: 100%;
+}
+.sheet-page .fit-ml {
+  height: 100%;
+  white-space: normal;
+}
+.sheet-page .feature-lines {
+  padding-top: 5px;
+}
+.sheet-page .feature-lines .fit-ml {
+  line-height: 33px;
+  padding-left: 58px;
+  text-indent: -58px;
+}
+.sheet-page .feature-lines.tight .fit-ml {
+  line-height: 32px;
+}
+.sheet-page .prof-plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fff;
+  border: 2px solid #4a4a4a;
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  font: 700 12px/1 Montserrat, sans-serif;
+  color: #333;
+}
+.sheet-page .dot-track {
+  display: inline-flex;
+  gap: 3px;
+}
+.sheet-page .dot {
+  width: 15px;
+  height: 15px;
+  border: 1.6px solid #4a4a4a;
+  border-radius: 50%;
+  background: #fff;
+}
+.sheet-page .dot.is-on {
+  background: radial-gradient(#4a4a4a 42%, #fff 48%);
+}
+.sheet-page .inv-title {
+  text-align: center;
+  font: 700 17px/1 Montserrat, sans-serif;
+  color: #333;
+}
+.sheet-page .tickbox {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 1.6px solid #555;
+  background: #fff;
+  padding: 0;
+  cursor: pointer;
+}
+.sheet-page .tickbox.is-on {
+  background: #555;
+  box-shadow: inset 0 0 0 2.5px #fff;
+}
+.sheet-page .tick-label {
+  font: 700 10px/1 Montserrat, sans-serif;
+  color: #555;
+}
+.sheet-page .footer {
+  font-size: 10.5px;
+  color: #333;
+}
+
+/* Preview scaling wrapper (screen only) */
+.sheet-slot {
+  margin: 0 auto 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background: #fff;
+}
+.sheet-scaler {
+  width: 952px;
+  height: 1232px;
+  transform-origin: top left;
+}
+
+.sheet-page .die-gap {
+  float: right;
+  width: 58px;
+  height: 50px;
+  margin-top: 21px;
 }

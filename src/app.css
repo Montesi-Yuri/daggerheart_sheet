@@ -376,3 +376,36 @@ details > summary {
   padding: 40px;
   color: #333;
 }
+
+/* Preview pane */
+.preview-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #2b2f38;
+}
+.preview-bar button {
+  background: #3a404c;
+  color: #fff;
+  border: 1px solid #50586a;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.preview-bar button[aria-pressed="true"] {
+  background: #e8ebf0;
+  color: #1f2430;
+}
+.preview-bar .bar-gap {
+  flex: 1;
+}
+.preview-pages {
+  padding: 16px 16px 4px;
+  overflow-x: auto;
+}
+.sheet-slot[hidden] {
+  display: none;
+}
