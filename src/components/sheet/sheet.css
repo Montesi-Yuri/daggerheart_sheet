@@ -1,0 +1,4 @@
+/* Sheet styles are scoped under .sheet so they print identically and never leak into the app UI. */
+.sheet {
+  position: relative;
+}
